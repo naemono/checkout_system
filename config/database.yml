@@ -1,0 +1,4 @@
+development:
+  db: 'sqlite://db/checkouts.db'
+test:
+  db: 'sqlite://db/testing/checkout_test.db'

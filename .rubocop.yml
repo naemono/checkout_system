@@ -1,0 +1,4 @@
+Metrics/AbcSize:
+  Max: 31
+Metrics/LineLength:
+  Max: 140
