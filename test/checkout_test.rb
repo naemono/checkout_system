@@ -107,8 +107,23 @@ class TestCheckout < Minitest::Test
     assert_equal 6.00 * 2, @checkout.sum
   end
 
+  def test_buy_2_apples_1_chai_succeeds
+    %w(AP1 AP1 CH1).each { |code| @checkout.scan code }
+    assert_equal (6.00 * 2) + 3.11, @checkout.sum
+  end
+
   def test_buy_chai_get_milk_free
     %w(CH1 MK1).each { |code| @checkout.scan code }
     assert_equal 3.11, @checkout.sum
+  end
+
+  def test_buy_2_chai_get_1_milk_free
+    %w(CH1 CH1 MK1).each { |code| @checkout.scan code }
+    assert_equal 3.11 * 2, @checkout.sum
+  end
+
+  def test_buy_chai_2_milk_get_1_milk_free
+    %w(CH1 MK1 MK1).each { |code| @checkout.scan code }
+    assert_equal (3.11 + 4.75).round(2), @checkout.sum
   end
 end

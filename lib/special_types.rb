@@ -34,11 +34,10 @@ class BuyThisGetThatFree
   # @raise ArgumentError, if an invalid number of distinct items was sent to method
   def num_discounts(products)
     types = get_all_product_codes(products)
-    # this is getting the count of distinct items in the list.
+    # This is getting the count of distinct items in the list.
     res = Hash[types.group_by { |x| x }.map { |k, v| [k, v.count] }]
-    if res.keys.length != 2
-      raise ArgumentError, "Too many distinct products sent to 'Buy one get one free' Discount type."
-    end
+    # In this case, you haven't purchased the 'other' product to get this discount
+    return 0 if res.keys.length != 2
     res[res.keys[0]] < res[res.keys[1]] ? res[res.keys[0]] : res[res.keys[1]]
   end
 
