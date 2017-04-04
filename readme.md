@@ -1,1 +1,0 @@
-# Ruby Based Checkout System
