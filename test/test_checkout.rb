@@ -1,5 +1,6 @@
 # frozen_string_literal: false
 ENV['RUBY_ENV'] = 'test'
+require_relative 'test_helper'
 require 'minitest/autorun'
 require_relative '../lib/checkout'
 require_relative '../lib/special'
