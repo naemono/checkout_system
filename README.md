@@ -65,3 +65,11 @@ Or Manually
 ```
 $ ruby test/*_test.rb
 ```
+
+
+### Coverage Report
+After test run
+```
+$ rake
+```
+Point web browser at file:///Path/To/Checkout/Dir/coverage/index.html
